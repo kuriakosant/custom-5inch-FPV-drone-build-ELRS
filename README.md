@@ -1,7 +1,12 @@
 # 🛸 5" FPV Freestyle Build (DJI O4 Lite + ELRS)
 
-My first custom 5-inch FPV freestyle drone
-This repository contains the full parts list, wiring schematics, and Betaflight configuration files for reproducibility.
+My first custom 5-inch FPV freestyle drone.
+
+> [!WARNING]
+> **🚧 Work In Progress**
+> This repository is currently a work in progress. Most files are missing while I collect everything (product lists, schematics, wiring diagrams, etc.). Once I gather all the necessary materials, I will upload them here.
+
+This repository will contain the full parts list, wiring schematics, and Betaflight configuration files for reproducibility.
 
 ## 📊 Quick Specs
 | Component | Part | Price | Link |
