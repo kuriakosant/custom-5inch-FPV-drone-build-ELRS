@@ -1,63 +1,73 @@
-# 🛸 5" FPV Freestyle Build (DJI O4 Lite + ELRS)
+# 🛸 SUKHOI: 5" Digital Freestyle Build
+### DJI O4 Lite + ELRS + GPS Rescue 
 
-My first custom 5-inch FPV freestyle drone.
+The **SUKHOI** is a custom-engineered 5-inch FPV drone optimized for high-fidelity digital video and reliable long-range freestyle. Built on the **PhiSital Mark5 DC** frame, it features a full **DJI O4 Lite** stack with custom CNC cooling and a wide-angle lens for cinematic performance.
 
-> [!WARNING]
-> **🚧 Work In Progress**
-> This repository is currently a work in progress. Most files are missing while I collect everything (product lists, schematics, wiring diagrams, etc.). Once I gather all the necessary materials, I will upload them here.
-
-This repository will contain the full parts list, wiring schematics, and Betaflight configuration files for reproducibility.
-
-## 📊 Quick Specs
-| Component | Part | Price | Link |
-| :--- | :--- | :--- | :--- |
-| **Frame** | | | |
-| **FC/ESC Stack** | [e.g., SpeedyBee F405 V3 Stack] | | |
-| **Motors** | | | |
-| **Digital VTX** | DJI O4 Lite Air Unit | | |
-| **Camera** | Flywoo Wide Angle Lens (O4) | | |
-| **Receiver** | Happymodel EP2 (ELRS 2.4GHz) | | |
-| **Battery** | 6S 1500–1850mAh | | |
-| **Firmware** | Betaflight 4.5.x | | |
+> [!NOTE]
+> This repository serves as a full hardware manifest, wiring guide, and Betaflight configuration log for the SUKHOI project.
 
 ---
 
-## ⚡ Wiring Diagram
-> [!TIP]
-> Always check your pinouts with a multimeter before plugging in the battery for the first time!
+## 📊 Technical Specifications
 
-![Wiring Diagram](./media/wiring-diagram.png)
+### Core Components
+| Component | Part | Note |
+| :--- | :--- | :--- |
+| **Frame** | PhiSital Mark5 DC O4 Pro | 5" Carbon Fiber / DeadCat Geometry |
+| **FC & ESC Stack** | SpeedyBee F405 V4 55A/60A | 30x30 Stack / Bluetooth Config |
+| **Motors** | iFlight XING E Pro 2207 | 1800KV (6S Optimized) |
+| **VTX** | DJI O4 Lite Air Unit | CNC Housing + 13cm Extender |
+| **Camera Lens** | Flywoo Wide Angle (O4) | Enhanced FOV for freestyle |
+| **Receiver** | HappyModel EP1 RX | 2.4GHz ExpressLRS |
+| **GPS Module** | BN-880 GNSS | Dual GPS/GLONASS + Built-in Flash |
+| **Buzzer** | VIFLY Finder 2 V2 | Self-powered tracker (Lost Model Alarm) |
+| **Props** | HQprop Ethix S5 | 5040 3-Blade |
 
+### Power System
+* **Primary Batteries:** GNB 6S 1850mAh (120C/240C) for long flight times.
+* **Agility Batteries:** GNB 6S 1500mAh (120C/240C) for freestyle sessions.
+* **Capacitor:** 35V 1000uF Low ESR (Required for clean DJI O4 power).
+
+---
+
+## ⚡ Ground Station & Support Gear
+* **Radio:** Jumper T15 ELRS (Internal 2.4G)
+* **Radio Power:** Samsung INR21700 40T (4000mAh)
+* **Charger:** ToolkitRC M7 200W DC + ADP100 Adapter
+* **Field Charging:** XT30 to XT60 Adapters for cross-platform compatibility.
+
+---
+
+## ⚙️ Software & Telemetry
+
+### Betaflight 4.5.x Configuration
 * **UART 1:** Serial RX (ELRS)
-* **UART 2:** VTX MSP (Displayport)
-* **UART 6:** GPS (if applicable)
-
----
-
-## ⚙️ Software Configuration
-
-### Betaflight CLI
-I have included two types of configuration files in the `/config` folder:
-1.  `diff_all.txt`: Only the changes from default (Recommended for most users).
-2.  `dump.txt`: The full firmware state.
+* **UART 2:** VTX MSP (Displayport for DJI OSD)
+* **UART 3:** VIFLY Finder Control
+* **UART 6:** GPS (BN-880 @ 57600 baud)
 
 ### PID & Filter Tuning
-* **Master Multiplier:** 1.1
-* **Filters:** [Explain if you use RPM filtering or presets]
-* **Rates:** [e.g., Actual Rates: 600 deg/s Center, 0.10 Expo]
+* **Gyro/PID Loop:** 8kHz / 4kHz
+* **DSHOT:** DShot600 (Bidirectional enabled)
+* **GPS Rescue:** Configured for 50m minimum altitude and "Sanity Check" enabled.
 
 ---
 
-## 🛠️ Build Notes
-* **Capacitor:** Used a 35V 1000uF Low ESR cap to minimize video noise.
-* **TPU Parts:** Printed in 95A TPU. Files are located in the `/3D-Prints` folder.
-* **Prop Direction:** Props-out configuration to keep the camera lens cleaner.
-* **DJI O4:** Requires correct MSP setup for OSD. RockSteady OFF recommended for wide-angle lens (causes jitter otherwise).
+## 🛠️ Build & Maintenance Notes
+* **Thermal Management:** The DJI O4 Lite uses an **Axisflying CNC housing** to dissipate heat during high-wattage transmission.
+* **Antenna Array:** * 1x Black Bear 5.8G Lollipop (LHCP) 155mm
+    * 1x Black Bear 5.8G Lollipop (LHCP) 115mm
+* **Lens Care:** RockSteady is set to **OFF** in-goggle to prevent the "jitter" effect common with aftermarket wide-angle lenses.
+* **Safety:** VIFLY Finder 2 ensures recovery even if the main battery is ejected during a crash.
 
-## 🎥 Flight Footage
-Check out the maiden flight here: [Link to YouTube/Instagram]
+---
+
+## 📂 Repository Contents
+* `/config`: `diff_all.txt` and `dump.txt` for Betaflight 4.5.
+* `/3D-Prints`: TPU mounts for the BN-880 GPS and Immortal-T antenna.
+* `/media`: Wiring diagrams and high-res build photos.
 
 ---
 
 ## 🤝 Support
-If you have questions about this specific build or need help with the configuration, feel free to open an **Issue** or a **Discussion**!
+Open an **Issue** if you have questions about the SUKHOI component compatibility or Betaflight CLI settings.
