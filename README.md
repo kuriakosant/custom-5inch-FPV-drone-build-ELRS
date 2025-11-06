@@ -8,6 +8,12 @@ The **SUKHOI** is a custom-engineered 5-inch FPV drone optimized for high-fideli
 
 ---
 
+<p align="center">
+  <img src="./media/drone1.jpg" width="800" alt="SUKHOI FPV Drone Hero Shot">
+</p>
+
+---
+
 ## 📊 Technical Specifications
 
 ### Core Components
@@ -35,6 +41,26 @@ The **SUKHOI** is a custom-engineered 5-inch FPV drone optimized for high-fideli
 * **Radio Power:** Samsung INR21700 40T (4000mAh)
 * **Charger:** ToolkitRC M7 200W DC + ADP100 Adapter
 * **Field Charging:** XT30 to XT60 Adapters for cross-platform compatibility.
+
+
+---
+
+## ⚡ Wiring Schematic (SpeedyBee F405 V4 Stack)
+
+| Peripheral | FC Pad | Wire Color | Function |
+| :--- | :--- | :--- | :--- |
+| **DJI O4 Lite** | **VCC** | Red | Power (9V - 25V) |
+| **DJI O4 Lite** | **GND** | Black | Ground |
+| **DJI O4 Lite** | **TX2** | White | MSP (OSD Data) |
+| **DJI O4 Lite** | **RX2** | Grey | MSP (OSD Data) |
+| **ELRS EP1 RX** | **5V** | Red | Receiver Power |
+| **ELRS EP1 RX** | **GND** | Black | Ground |
+| **ELRS EP1 RX** | **TX1** | Yellow | CRSF Protocol |
+| **ELRS EP1 RX** | **RX1** | Green | CRSF Protocol |
+| **BN-880 GPS** | **4.5V** | Red | GPS Power |
+| **BN-880 GPS** | **TX6** | Blue | GNSS Data |
+| **BN-880 GPS** | **RX6** | White | GNSS Data |
+| **VIFLY Buzzer** | **BZ- / 5V / G**| Red/Blk/Yel | Lost Model Alarm |
 
 ---
 
